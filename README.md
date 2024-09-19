@@ -7,7 +7,7 @@ To find an optimal policy for an agent navigating a grid-world with slippery til
 The problem involves using the Value Iteration algorithm to find the best strategy for an agent in the Frozen Lake environment. The agent must navigate icy terrain, avoid hazards, and reach the goal while optimizing cumulative rewards in an uncertain environment.
 
 ## POLICY ITERATION ALGORITHM
-Include the steps involved in the value iteration algorithm
+
 
 ## VALUE ITERATION FUNCTION
 ### Name:POOJA A
@@ -30,7 +30,9 @@ def value_iteration(P, gamma=1.0, theta=1e-10):
 ```
 
 ## OUTPUT:
-
+### optimal policy
+### optimal value function
+### success rate for the optimal policy
 
 ## RESULT:
 Thus, a Python program is developed to find the optimal policy for the given MDP using the value iteration algorithm.

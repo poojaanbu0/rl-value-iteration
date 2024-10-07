@@ -7,27 +7,21 @@ To find an optimal policy for an agent navigating a grid-world with slippery til
 The problem involves using the Value Iteration algorithm to find the best strategy for an agent in the Frozen Lake environment. The agent must navigate icy terrain, avoid hazards, and reach the goal while optimizing cumulative rewards in an uncertain environment.
 
 ## POLICY ITERATION ALGORITHM
- Policy iteration is a method of computing an optimal MDP policy and its value.
-    It begins with an initial guess for the value function, and iteratively updates it towards the optimal value function, according to the Bellman optimality equation.
-    The algorithm is guaranteed to converge to the optimal value function, and in the process of doing so, also converges to the optimal policy.
+The **Policy Iteration algorithm** is a method used in reinforcement learning to find the optimal policy for a **Markov Decision Process (MDP)**. It iteratively improves a policy by alternating between two key steps:
 
+1. **Policy Evaluation**: In this step, the current policy is evaluated by computing its **value function**, which estimates the expected return (rewards) from each state when following the policy.
 
-The algorithm is as follows:
+2. **Policy Improvement**: Once the value function is computed, the policy is updated by choosing actions that maximize the expected return based on the current value function, effectively improving the policy.
 
-Initialize the value function V(s) arbitrarily for all states s.
-    Repeat until convergence:
-        Initialize aaction-value function Q(s, a) arbitrarily for all states s and actions a.
-        For all the states s and all the action a of every state:
-            Update the action-value function Q(s, a) using the Bellman equation.
-            Take the value function V(s) to be the maximum of Q(s, a) over all actions a.
-            Check if the maximum difference between Old V and new V is less than theta.
-            Where theta is a small positive number that determines the accuracy of estimation.
-    If the maximum difference between Old V and new V is greater than theta, then
-        Update the value function V with the maximum action-value from Q.
-        Go to step 2.
-    The optimal policy can be constructed by taking the argmax of the action-value function Q(s, a) over all actions a.
-    Return the optimal policy and the optimal value function.
+These two steps—evaluation and improvement—are repeated until the policy becomes stable, meaning no further improvement is possible. At this point, the algorithm converges to an optimal policy, ensuring the best possible actions are taken in each state.
 
+### Steps of the Policy Iteration Algorithm:
+1. **Initialize** a random policy.
+2. **Policy Evaluation**: Compute the value function for the current policy by solving the Bellman equation for each state.
+3. **Policy Improvement**: Update the policy by selecting actions that maximize the value function for each state.
+4. **Repeat** steps 2 and 3 until the policy no longer changes (convergence).
+
+This algorithm is guaranteed to converge to an optimal policy for an MDP in a finite number of iterations. It is effective but can be computationally expensive for large state spaces.
 
 ## VALUE ITERATION FUNCTION
 ### Name:POOJA A
@@ -50,9 +44,16 @@ def value_iteration(P, gamma=1.0, theta=1e-10):
 ```
 
 ## OUTPUT:
+![image](https://github.com/user-attachments/assets/33004c9c-bf2e-46c8-8f0e-342fb73ff991)
+
 ### optimal policy
+![image](https://github.com/user-attachments/assets/989b5469-c0dc-411a-a992-bfc8e98527bf)
+
 ### optimal value function
+![image](https://github.com/user-attachments/assets/175bbf7a-f644-4a03-81d4-6d0a8356b712)
+
 ### success rate for the optimal policy
+![image](https://github.com/user-attachments/assets/e790d723-7be1-484a-b41d-6f7c8ce30a1b)
 
 ## RESULT:
 Thus, a Python program is developed to find the optimal policy for the given MDP using the value iteration algorithm.
